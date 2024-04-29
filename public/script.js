@@ -64,6 +64,11 @@ function draw(currentX, currentY) {
   [lastX, lastY] = [currentX, currentY];
 }
 
+const countElement = document.getElementById('count');
+socket.on('userCount', (count) => {
+  countElement.textContent = count;
+});
+
 // Receive drawing data from the server
 socket.on('draw', (data) => {
   ctx.beginPath();
